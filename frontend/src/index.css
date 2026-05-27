@@ -1457,3 +1457,69 @@ select {
 .mt-4 { margin-top: 16px; }
 .mb-4 { margin-bottom: 16px; }
 .flex-center { display: flex; align-items: center; justify-content: center; }
+
+/* ══════════════════════════════════════════
+   PAGE HEADER (title + action button row)
+   ══════════════════════════════════════════ */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.page-header h1 { margin: 0; }
+
+/* ══════════════════════════════════════════
+   ADD FORM CARD (collapsible form panel)
+   ══════════════════════════════════════════ */
+.add-form-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 45, 61, 0.2);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  animation: pageFadeIn 0.2s var(--ease) both;
+}
+.add-form-label {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════
+   SURFACE SCROLL MODIFIER
+   ══════════════════════════════════════════ */
+.surface-scroll {
+  overflow-x: auto;
+  padding: 0;
+}
+
+/* ══════════════════════════════════════════
+   ROSTER DELETE BUTTON
+   ══════════════════════════════════════════ */
+.roster-delete {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--red-light);
+  opacity: 0.2;
+  border-radius: var(--radius-sm);
+  padding: 4px 9px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+  font-family: var(--sans);
+  line-height: 1;
+}
+.roster-item:hover .roster-delete {
+  opacity: 0.55;
+}
+.roster-delete:hover {
+  opacity: 1 !important;
+  background: rgba(255, 45, 61, 0.08);
+  border-color: rgba(255, 45, 61, 0.25);
+}
