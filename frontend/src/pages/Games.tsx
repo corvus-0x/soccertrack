@@ -9,6 +9,7 @@ type Game = components['schemas']['Game'];
 export default function Games() {
   const { activeTeam } = useTeam();
   const [games, setGames] = useState<Game[]>([]);
+  const [showForm, setShowForm] = useState(false);
   const [opponent, setOpponent] = useState('');
   const [date, setDate] = useState('');
   const [location, setLocation] = useState<'home' | 'away'>('home');
@@ -55,34 +56,49 @@ export default function Games() {
     setOpponent('');
     setDate('');
     setLocation('home');
+    setShowForm(false);
     load();
   }
 
   return (
     <div className="page">
-      <h1>Games</h1>
+      <div className="page-header">
+        <h1>Games</h1>
+        <button
+          className="btn btn-primary"
+          onClick={() => { setShowForm(v => !v); setError(null); }}
+        >
+          {showForm ? 'Cancel' : '+ New Game'}
+        </button>
+      </div>
 
-      {error && <p className="error">{error}</p>}
+      {showForm && (
+        <div className="add-form-card">
+          <p className="add-form-label">Schedule a Game</p>
+          {error && <p className="error">{error}</p>}
+          <form onSubmit={addGame} className="form-row" style={{ marginBottom: 0 }}>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              style={{ width: 150 }}
+            />
+            <input
+              placeholder="Opponent"
+              value={opponent}
+              onChange={(e) => setOpponent(e.target.value)}
+              style={{ flex: 1, minWidth: 120 }}
+            />
+            <select value={location} onChange={(e) => setLocation(e.target.value as 'home' | 'away')}>
+              <option value="home">Home</option>
+              <option value="away">Away</option>
+            </select>
+            <button type="submit" className="btn btn-primary">Add Game</button>
+          </form>
+        </div>
+      )}
 
-      <form onSubmit={addGame} className="form-row">
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          style={{ width: 150 }}
-        />
-        <input
-          placeholder="Opponent"
-          value={opponent}
-          onChange={(e) => setOpponent(e.target.value)}
-          style={{ flex: 1, minWidth: 120 }}
-        />
-        <select value={location} onChange={(e) => setLocation(e.target.value as 'home' | 'away')}>
-          <option value="home">Home</option>
-          <option value="away">Away</option>
-        </select>
-        <button type="submit" className="btn btn-primary">Add Game</button>
-      </form>
+      {!showForm && error && <p className="error">{error}</p>}
 
       <div className="surface">
         {loading ? (
@@ -91,7 +107,7 @@ export default function Games() {
           <div className="empty-state">
             <span className="empty-state-icon">🏟️</span>
             <div className="empty-state-title">No Games Yet</div>
-            <p>Schedule your first match above and start tracking.</p>
+            <p>Hit <strong>+ New Game</strong> above to schedule your first match.</p>
           </div>
         ) : (
           games.map((g) => (
