@@ -92,6 +92,7 @@ body {
   box-shadow: 0 1px 0 rgba(255, 45, 61, 0.12), 0 4px 24px rgba(0, 0, 0, 0.6);
 }
 .nav-brand {
+  font-family: var(--display);
   font-weight: 900;
   font-size: 1.05rem;
   letter-spacing: 2.5px;
@@ -115,6 +116,7 @@ body {
   text-shadow: 0 0 20px rgba(255, 45, 61, 0.5);
 }
 .nav a:not(.nav-brand) {
+  font-family: var(--display);
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 700;
@@ -147,6 +149,7 @@ body {
   position: relative;
 }
 .team-switcher-btn {
+  font-family: var(--display);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -161,7 +164,6 @@ body {
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
-  font-family: var(--sans);
 }
 .team-switcher-btn:hover {
   border-color: var(--red);
@@ -196,6 +198,7 @@ body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .team-dropdown-label {
+  font-family: var(--display);
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -288,6 +291,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 .page h1 {
+  font-family: var(--display);
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--text-heading);
@@ -371,7 +375,7 @@ select {
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 0.8rem;
-  font-family: var(--sans);
+  font-family: var(--display);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -501,6 +505,7 @@ select {
   filter: grayscale(0.4);
 }
 .empty-state-title {
+  font-family: var(--display);
   font-weight: 800;
   font-size: 1rem;
   color: var(--text);
@@ -700,6 +705,7 @@ select {
 }
 
 .player-card .card-badge {
+  font-family: var(--display);
   background: var(--red-gradient);
   color: #fff;
   font-size: 0.65rem;
@@ -869,6 +875,7 @@ select {
   box-shadow: var(--shadow-md);
 }
 .bench-panel .bench-title {
+  font-family: var(--display);
   font-size: 0.65rem;
   font-weight: 800;
   color: var(--text-heading);
@@ -967,6 +974,7 @@ select {
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
 }
 .clock-final {
+  font-family: var(--display);
   font-weight: 900;
   color: var(--red-light);
   text-transform: uppercase;
@@ -1127,6 +1135,7 @@ select {
   font-size: 0.8rem;
 }
 .stats-table th {
+  font-family: var(--display);
   padding: 14px 8px;
   font-weight: 800;
   border-bottom: 2px solid var(--red);
@@ -1319,6 +1328,7 @@ select {
   font-size: 0.8rem;
 }
 .game-location {
+  font-family: var(--display);
   font-size: 0.58rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -1343,6 +1353,7 @@ select {
   gap: 6px;
 }
 .game-link {
+  font-family: var(--display);
   font-size: 0.68rem;
   color: var(--text-muted);
   text-decoration: none;
@@ -1429,6 +1440,7 @@ select {
    SECTION DIVIDER
    ══════════════════════════════════════════ */
 .section-label {
+  font-family: var(--display);
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--text-muted);
