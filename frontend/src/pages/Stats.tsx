@@ -224,7 +224,7 @@ export default function Stats() {
           <p>{isSeason ? 'Play some games first to see season stats here.' : 'No stats recorded for this game.'}</p>
         </div>
       ) : (
-        <div className="surface" style={{ overflowX: 'auto', padding: 0 }}>
+        <div className="surface surface-scroll">
           <table className="stats-table">
             <thead>
               <tr>

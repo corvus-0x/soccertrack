@@ -133,8 +133,8 @@ export default function GameSummary() {
 
   return (
     <div className="page">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-        <h1 style={{ margin: 0 }}>Game Summary</h1>
+      <div className="page-header">
+        <h1>Game Summary</h1>
         <Link to={`/games/${gameId}/tracker`} className="game-link">← Back to Tracker</Link>
       </div>
 
@@ -145,7 +145,7 @@ export default function GameSummary() {
           <p>Head back to the tracker to log player actions.</p>
         </div>
       ) : (
-        <div className="surface" style={{ overflowX: 'auto', padding: 0 }}>
+        <div className="surface surface-scroll">
           <table className="stats-table">
             <thead>
               <tr>
