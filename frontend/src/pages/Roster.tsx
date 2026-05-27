@@ -8,6 +8,7 @@ type Player = components['schemas']['Player'];
 export default function Roster() {
   const { activeTeam } = useTeam();
   const [players, setPlayers] = useState<Player[]>([]);
+  const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState('');
   const [jersey, setJersey] = useState('');
   const [loading, setLoading] = useState(true);
@@ -53,30 +54,56 @@ export default function Roster() {
     }
     setName('');
     setJersey('');
+    setShowForm(false);
+    load();
+  }
+
+  async function deletePlayer(id: number) {
+    const { error } = await api.DELETE('/api/players/{id}/', {
+      params: { path: { id } },
+    });
+    if (error) {
+      setError('Failed to delete player');
+      return;
+    }
     load();
   }
 
   return (
     <div className="page">
-      <h1>Roster</h1>
+      <div className="page-header">
+        <h1>Roster</h1>
+        <button
+          className="btn btn-primary"
+          onClick={() => { setShowForm(v => !v); setError(null); }}
+        >
+          {showForm ? 'Cancel' : '+ Add Player'}
+        </button>
+      </div>
 
-      {error && <p className="error">{error}</p>}
+      {showForm && (
+        <div className="add-form-card">
+          <p className="add-form-label">Add a Player</p>
+          {error && <p className="error">{error}</p>}
+          <form onSubmit={addPlayer} className="form-row" style={{ marginBottom: 0 }}>
+            <input
+              placeholder="Jersey #"
+              value={jersey}
+              onChange={(e) => setJersey(e.target.value)}
+              style={{ width: 80 }}
+            />
+            <input
+              placeholder="Player Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{ flex: 1, minWidth: 120 }}
+            />
+            <button type="submit" className="btn btn-primary">Add Player</button>
+          </form>
+        </div>
+      )}
 
-      <form onSubmit={addPlayer} className="form-row">
-        <input
-          placeholder="Jersey #"
-          value={jersey}
-          onChange={(e) => setJersey(e.target.value)}
-          style={{ width: 80 }}
-        />
-        <input
-          placeholder="Player Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          style={{ flex: 1, minWidth: 120 }}
-        />
-        <button type="submit" className="btn btn-primary">Add Player</button>
-      </form>
+      {!showForm && error && <p className="error">{error}</p>}
 
       <div className="surface">
         {loading ? (
@@ -85,7 +112,7 @@ export default function Roster() {
           <div className="empty-state">
             <span className="empty-state-icon">👥</span>
             <div className="empty-state-title">Squad is Empty</div>
-            <p>Add your first player above to build the roster.</p>
+            <p>Hit <strong>+ Add Player</strong> above to build the roster.</p>
           </div>
         ) : (
           players.map((p) => (
@@ -93,8 +120,14 @@ export default function Roster() {
               <span className="roster-jersey">{p.jersey_number}</span>
               <div className="roster-info">
                 <span className="roster-name">{p.name}</span>
-                <span className="roster-number">No. {p.jersey_number}</span>
               </div>
+              <button
+                className="roster-delete"
+                onClick={() => deletePlayer(p.id)}
+                title="Remove player"
+              >
+                ✕
+              </button>
             </div>
           ))
         )}
