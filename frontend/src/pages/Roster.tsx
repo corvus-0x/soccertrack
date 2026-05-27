@@ -123,7 +123,11 @@ export default function Roster() {
               </div>
               <button
                 className="roster-delete"
-                onClick={() => deletePlayer(p.id)}
+                onClick={() => {
+                  if (window.confirm(`Remove ${p.name} from the roster? This cannot be undone.`)) {
+                    deletePlayer(p.id);
+                  }
+                }}
                 title="Remove player"
               >
                 ✕

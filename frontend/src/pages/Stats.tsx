@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { api } from '../api/client';
 import type { components } from '../api/schema';
 import { useTeam } from '../state/team';
@@ -239,7 +239,7 @@ export default function Stats() {
                 const hasPositions = p.positions && p.positions.length > 0;
                 const isTopScorer = maxGoals > 0 && p.Gl === maxGoals;
                 return (
-                  <>
+                  <Fragment key={p.player_id}>
                     <tr
                       key={p.player_id}
                       onClick={() => hasPositions && toggleExpand(p.player_id)}
@@ -300,7 +300,7 @@ export default function Stats() {
                         })}
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 );
               })}
               <tr className="total-row">

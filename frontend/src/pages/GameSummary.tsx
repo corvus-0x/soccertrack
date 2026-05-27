@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { api } from '../api/client';
 
@@ -160,7 +160,7 @@ export default function GameSummary() {
                 const hasPositions = p.positions && p.positions.length > 0;
                 const isTopScorer = maxGoals > 0 && p.Gl === maxGoals;
                 return (
-                  <>
+                  <Fragment key={p.player_id}>
                     <tr
                       key={p.player_id}
                       onClick={() => hasPositions && toggleExpand(p.player_id)}
@@ -216,7 +216,7 @@ export default function GameSummary() {
                         })}
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 );
               })}
               <tr className="total-row">
