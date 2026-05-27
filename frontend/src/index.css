@@ -112,7 +112,7 @@ body {
 }
 .nav-brand .brand-accent {
   color: var(--red-light);
-  text-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+  text-shadow: 0 0 20px rgba(255, 45, 61, 0.5);
 }
 .nav a:not(.nav-brand) {
   color: var(--text-muted);
@@ -134,9 +134,9 @@ body {
 }
 .nav a:not(.nav-brand).active {
   color: var(--red-light);
-  background: rgba(192, 39, 45, 0.1);
+  background: rgba(204, 0, 21, 0.1);
   border-bottom: 2px solid var(--red-light);
-  box-shadow: 0 2px 16px rgba(192, 39, 45, 0.15);
+  box-shadow: 0 2px 16px rgba(204, 0, 21, 0.15);
 }
 .nav-spacer { flex: 1; }
 
@@ -166,7 +166,7 @@ body {
 .team-switcher-btn:hover {
   border-color: var(--red);
   background: var(--bg-card-hover);
-  box-shadow: 0 0 16px rgba(192, 39, 45, 0.15);
+  box-shadow: 0 0 16px rgba(204, 0, 21, 0.15);
 }
 .team-switcher-btn .team-name {
   max-width: 180px;
@@ -306,7 +306,7 @@ body {
   background: var(--red-gradient);
   border-radius: 2px;
   flex-shrink: 0;
-  box-shadow: 0 0 16px var(--red-glow), 0 0 32px rgba(192, 39, 45, 0.1);
+  box-shadow: 0 0 16px var(--red-glow), 0 0 32px rgba(204, 0, 21, 0.1);
 }
 
 /* ══════════════════════════════════════════
@@ -406,7 +406,7 @@ select {
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(192, 39, 45, 0.55);
+  box-shadow: 0 8px 28px rgba(204, 0, 21, 0.55);
   filter: brightness(1.08);
 }
 .btn-primary:active {
@@ -452,8 +452,8 @@ select {
   font-size: 0.85rem;
   margin-bottom: 12px;
   padding: 10px 14px;
-  background: rgba(230, 57, 70, 0.06);
-  border: 1px solid rgba(230, 57, 70, 0.18);
+  background: rgba(255, 45, 61, 0.06);
+  border: 1px solid rgba(255, 45, 61, 0.18);
   border-radius: var(--radius-sm);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -923,7 +923,7 @@ select {
   background: var(--red-gradient);
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(192, 39, 45, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 8px rgba(204, 0, 21, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 .bench-card.selected .bench-jersey {
   background: linear-gradient(135deg, #d4af00, #ffd700);
@@ -1169,7 +1169,7 @@ select {
   font-weight: 800;
   border-top: 2px solid var(--red);
   color: var(--text-heading);
-  background: rgba(192, 39, 45, 0.04);
+  background: rgba(204, 0, 21, 0.04);
 }
 .stats-table .goal-cell {
   color: var(--gold);
@@ -1205,7 +1205,7 @@ select {
 .stats-table .pct-bar-fill {
   height: 100%;
   border-radius: 2px;
-  background: linear-gradient(90deg, #c0272d, #e63946);
+  background: linear-gradient(90deg, #cc0015, #ff2d3d);
   transition: width 0.4s var(--ease);
 }
 
@@ -1244,7 +1244,7 @@ select {
   padding: 6px 8px;
   font-size: 0.72rem;
   color: var(--text-muted);
-  background: rgba(192, 39, 45, 0.03);
+  background: rgba(204, 0, 21, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 .stats-table .position-row:last-of-type td {
@@ -1335,8 +1335,8 @@ select {
 }
 .game-location.away {
   color: var(--red-light);
-  background: rgba(230, 57, 70, 0.08);
-  border: 1px solid rgba(230, 57, 70, 0.15);
+  background: rgba(255, 45, 61, 0.08);
+  border: 1px solid rgba(255, 45, 61, 0.15);
 }
 .game-actions {
   display: flex;
@@ -1370,7 +1370,7 @@ select {
 }
 .game-link.primary:hover {
   filter: brightness(1.1);
-  box-shadow: 0 6px 20px rgba(192, 39, 45, 0.5);
+  box-shadow: 0 6px 20px rgba(204, 0, 21, 0.5);
 }
 
 /* ══════════════════════════════════════════
@@ -1404,7 +1404,7 @@ select {
   border-radius: 50%;
   flex-shrink: 0;
   box-shadow:
-    0 3px 10px rgba(192, 39, 45, 0.4),
+    0 3px 10px rgba(204, 0, 21, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.22),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   letter-spacing: -0.5px;
